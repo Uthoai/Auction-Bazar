@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "259499270680",
+    "project_id": "auction-bazar",
+    "storage_bucket": "auction-bazar.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:259499270680:android:b97a6fb1a54172c0c6196d",
+        "android_client_info": {
+          "package_name": "com.top.best.ecommerce.bd.auction.bazar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCujUl225CWqEaWj5x7yHyvw9aXAx7U5U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -23,8 +23,11 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
-            android:id="@+id/action_loginFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_sellerDashboardFragment"
+            app:destination="@id/sellerDashboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -32,12 +35,15 @@
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
-            android:id="@+id/action_signUpFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_sellerDashboardFragment"
+            app:destination="@id/sellerDashboardFragment" />
     </fragment>
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.top.best.ecommerce.bd.auction.bazar.view.Home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/sellerDashboardFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.SellerDashboardFragment"
+        android:label="fragment_seller_dashboard"
+        tools:layout="@layout/fragment_seller_dashboard" />
 </navigation>

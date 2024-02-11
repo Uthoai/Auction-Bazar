@@ -4,7 +4,7 @@
         <!-- Customize your light theme here. -->
         <item name="colorPrimary">@color/green700</item>
         <item name="colorPrimaryVariant">@color/green700</item>
-        <item name="colorOnPrimary">@color/green700</item>
+        <item name="android:statusBarColor">@color/green700</item>
     </style>
 
     <style name="Theme.AuctionBazar" parent="Base.Theme.AuctionBazar" />

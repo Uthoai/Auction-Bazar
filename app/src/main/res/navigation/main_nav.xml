@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.top.best.ecommerce.bd.auction.bazar.view.Login.LoginFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.top.best.ecommerce.bd.auction.bazar.view.SignUp.SignUpFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.signup.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action

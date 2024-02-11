@@ -20,6 +20,9 @@ abstract class BaseFragment<VB: ViewBinding>
     ): View? {
         _binding = bindingInflater.invoke(inflater)
 
+        setListener()
+        allObserver()
+
         return binding.root
     }
     abstract fun setListener()

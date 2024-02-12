@@ -1,13 +1,17 @@
 package com.top.best.ecommerce.bd.auction.bazar.view.signup
 
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.top.best.ecommerce.bd.auction.bazar.R
 import com.top.best.ecommerce.bd.auction.bazar.base.BaseFragment
+import com.top.best.ecommerce.bd.auction.bazar.core.DataState
 import com.top.best.ecommerce.bd.auction.bazar.databinding.FragmentSignUpBinding
 import com.top.best.ecommerce.bd.auction.bazar.isEmpty
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::inflate){
+
+    val viewModel: SignUpViewModel by viewModels()
     override fun setListener() {
         with(binding){
             btnSignup.setOnClickListener {
@@ -30,11 +34,19 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
 
     private fun checkEmailPasswordValidity() {
         val emailPattern = Regex("^[a-z0-9]+@[a-z]+\\.[a-z]{2,4}$")
+        val name = binding.etName.text.toString()
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
         if (emailPattern.matches(email)){
             if (password.length>=8){
-                findNavController().navigate(R.id.action_signUpFragment_to_sellerDashboardFragment)
+                val user = UserSignUp(
+                    name,
+                    email,
+                    password,
+                    "Seller",
+                    ""
+                )
+                viewModel.userSignup(user)
             }
             else{
                 Toast.makeText(context, "enter correct password", Toast.LENGTH_SHORT).show()
@@ -46,8 +58,24 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
     }
 
     override fun allObserver() {
-
+        signupObserver()
     }
-
+    private fun signupObserver() {
+        viewModel.signupResponse_.observe(viewLifecycleOwner){
+            when(it){
+                is DataState.Error -> {
+                    loading.dismiss()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Loading -> {
+                    loading.show()
+                }
+                is DataState.Success -> {
+                    loading.dismiss()
+                    findNavController().navigate(R.id.action_signUpFragment_to_sellerDashboardFragment)
+                }
+            }
+        }
+    }
 
 }

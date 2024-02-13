@@ -1,13 +1,16 @@
 package com.top.best.ecommerce.bd.auction.bazar.view.login
 
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.top.best.ecommerce.bd.auction.bazar.R
 import com.top.best.ecommerce.bd.auction.bazar.base.BaseFragment
+import com.top.best.ecommerce.bd.auction.bazar.core.DataState
 import com.top.best.ecommerce.bd.auction.bazar.databinding.FragmentLoginBinding
 import com.top.best.ecommerce.bd.auction.bazar.isEmpty
 
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
+    val viewModel: LoginViewModel by viewModels()
     override fun setListener() {
         with(binding){
             btnLogin.setOnClickListener {
@@ -31,7 +34,11 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
         val password = binding.etPassword.text.toString()
         if (emailPattern.matches(email)){
             if (password.length>=8){
-                findNavController().navigate(R.id.action_loginFragment_to_sellerDashboardFragment)
+                val user = UserLogin(
+                    email,
+                    password
+                )
+                viewModel.userLogin(user)
             }
             else{
                 Toast.makeText(context, "enter correct password", Toast.LENGTH_SHORT).show()
@@ -43,5 +50,24 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::i
     }
 
     override fun allObserver() {
+        loginObserver()
+    }
+
+    private fun loginObserver() {
+        viewModel.loginResponse_.observe(viewLifecycleOwner){
+            when(it){
+                is DataState.Error -> {
+                    loading.dismiss()
+                    Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+                }
+                is DataState.Loading -> {
+                    loading.show()
+                }
+                is DataState.Success -> {
+                    loading.dismiss()
+                    findNavController().navigate(R.id.action_loginFragment_to_sellerDashboardFragment)
+                }
+            }
+        }
     }
 }

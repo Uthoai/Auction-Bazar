@@ -5,5 +5,5 @@ data class UserSignUp(
     val email: String,
     val password: String,
     val userType: String,
-    val userID: String,
+    val userID: String
 )

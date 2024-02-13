@@ -11,7 +11,7 @@ import com.top.best.ecommerce.bd.auction.bazar.isEmpty
 
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::inflate){
 
-    val viewModel: SignUpViewModel by viewModels()
+    private val viewModel: SignUpViewModel by viewModels()
     override fun setListener() {
         with(binding){
             btnSignup.setOnClickListener {

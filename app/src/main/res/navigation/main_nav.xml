@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/sellerDashboardFragment"
-        android:name="com.top.best.ecommerce.bd.auction.bazar.SellerDashboardFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.dashboardseller.SellerDashboardFragment"
         android:label="fragment_seller_dashboard"
         tools:layout="@layout/fragment_seller_dashboard" />
 </navigation>

@@ -8,7 +8,9 @@ import com.top.best.ecommerce.bd.auction.bazar.base.BaseFragment
 import com.top.best.ecommerce.bd.auction.bazar.core.DataState
 import com.top.best.ecommerce.bd.auction.bazar.databinding.FragmentSignUpBinding
 import com.top.best.ecommerce.bd.auction.bazar.isEmpty
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding::inflate){
 
     private val viewModel: SignUpViewModel by viewModels()

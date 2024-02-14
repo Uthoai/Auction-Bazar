@@ -5,14 +5,13 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.top.best.ecommerce.bd.auction.bazar.view.login.UserLogin
 import com.top.best.ecommerce.bd.auction.bazar.view.signup.UserSignUp
+import javax.inject.Inject
 
-class AuthService: AuthSource {
+class AuthService @Inject constructor(private val mAuth: FirebaseAuth): AuthSource {
     override fun userSignup(userSignUp: UserSignUp): Task<AuthResult> {
-        val mAuth = FirebaseAuth.getInstance()
         return mAuth.createUserWithEmailAndPassword(userSignUp.email,userSignUp.password)
     }
     override fun userLogin(userLogin: UserLogin): Task<AuthResult> {
-        val mAuth = FirebaseAuth.getInstance()
         return mAuth.signInWithEmailAndPassword(userLogin.email,userLogin.password)
     }
     override fun userPassword(email: String) {

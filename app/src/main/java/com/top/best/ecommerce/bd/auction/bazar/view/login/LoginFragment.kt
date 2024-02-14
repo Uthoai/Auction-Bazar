@@ -8,7 +8,9 @@ import com.top.best.ecommerce.bd.auction.bazar.base.BaseFragment
 import com.top.best.ecommerce.bd.auction.bazar.core.DataState
 import com.top.best.ecommerce.bd.auction.bazar.databinding.FragmentLoginBinding
 import com.top.best.ecommerce.bd.auction.bazar.isEmpty
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : BaseFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate) {
     val viewModel: LoginViewModel by viewModels()
     override fun setListener() {

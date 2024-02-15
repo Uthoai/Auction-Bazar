@@ -9,4 +9,5 @@ interface AuthSource{
     fun userSignup(userSignUp: UserSignUp): Task<AuthResult>
     fun userLogin(userLogin: UserLogin): Task<AuthResult>
     fun userPassword(email: String)
+    fun createUser(userSignUp: UserSignUp): Task<Void>
 }

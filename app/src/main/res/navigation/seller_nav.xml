@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/seller_nav"
+    app:startDestination="@id/storeFragment">
+
+    <fragment
+        android:id="@+id/storeFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.dashboard.seller.StoreFragment"
+        android:label="Store"
+        tools:layout="@layout/fragment_store" />
+    <fragment
+        android:id="@+id/toolFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.dashboard.seller.ToolFragment"
+        android:label="Tools"
+        tools:layout="@layout/fragment_tool" />
+    <fragment
+        android:id="@+id/dataFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.dashboard.seller.DataFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_data" />
+    <fragment
+        android:id="@+id/messagesFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.dashboard.seller.MessagesFragment"
+        android:label="Messages"
+        tools:layout="@layout/fragment_messages" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.top.best.ecommerce.bd.auction.bazar.view.dashboard.seller.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" />
+</navigation>

@@ -1,5 +1,6 @@
 package com.top.best.ecommerce.bd.auction.bazar.view.signup
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -8,6 +9,7 @@ import com.top.best.ecommerce.bd.auction.bazar.base.BaseFragment
 import com.top.best.ecommerce.bd.auction.bazar.core.DataState
 import com.top.best.ecommerce.bd.auction.bazar.databinding.FragmentSignUpBinding
 import com.top.best.ecommerce.bd.auction.bazar.isEmpty
+import com.top.best.ecommerce.bd.auction.bazar.view.dashboard.seller.SellerDashboardActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -74,7 +76,8 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
                 }
                 is DataState.Success -> {
                     loading.dismiss()
-                    findNavController().navigate(R.id.action_signUpFragment_to_sellerDashboardFragment)
+                    startActivity(Intent(requireContext(), SellerDashboardActivity::class.java))
+                    requireActivity().finish()
                 }
             }
         }

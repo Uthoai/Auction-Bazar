@@ -10,4 +10,11 @@
     <string name="new_user">new user?...</string>
     <string name="full_name">full name</string>
     <string name="already_have_an_account">already have an account...</string>
+    <string name="home">Home</string>
+    <string name="tools">Tools</string>
+    <string name="data">Data</string>
+    <string name="message">Message</string>
+    <string name="me">Me</string>
+    <string name="profile">Profile</string>
+    <string name="shop">Shop</string>
 </resources>
